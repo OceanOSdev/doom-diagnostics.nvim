@@ -98,14 +98,14 @@ function M.create_autocmds()
 		callback = function()
 			-- Wrap in schedule to avoid E565 (textlock)
 			vim.schedule(function()
-				if vim.api.nvim_buf_is_valid(0) then
+				local bufnr = vim.api.nvim_get_current_buf()
+				if vim.api.nvim_buf_is_valid(bufnr) then
 					M.render_doomguy()
 				end
 			end)
 		end,
 	})
 
-	--vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
 	vim.api.nvim_create_autocmd("BufLeave", {
 		group = group,
 		callback = function()
