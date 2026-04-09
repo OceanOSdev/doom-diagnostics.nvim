@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+  pull_request:
+jobs:
+  nvim:
+    name: Neovim smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Neovim
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y neovim
+      - name: Load plugin
+        run: |
+          nvim --headless \
+            +"set rtp+=." \
+            +"lua require('doom-diagnostics').setup({ force_ascii = true })" \
+            +"lua vim.cmd('DoomToggle')" \
+            +qa
