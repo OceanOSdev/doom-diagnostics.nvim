@@ -5,7 +5,6 @@
 
 ---@class DoomConfig
 ---@field win_width integer
----@field position string
 ---@field pain_weights DoomWeights
 ---@field force_ascii? boolean
 
@@ -17,7 +16,6 @@ local plugin_root = debug.getinfo(1).source:sub(2):match("(.*)/lua/")
 ---@type DoomConfig
 M.defaults = {
 	win_width = 25,
-	position = "top_right",
 	pain_weights = {
 		error = 10,
 		warning = 5,
