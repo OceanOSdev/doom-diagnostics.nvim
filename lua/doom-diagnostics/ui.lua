@@ -24,7 +24,7 @@ end
 function M.ensure_window(win_width)
 	-- Check if the buffer exists and is valid
 	if not M.buf_id or not vim.api.nvim_buf_is_valid(M.buf_id) then
-		M.buf_id = vim.api.nvim_create_buf(false, true) -- Creat a new scratch buffer with listed = false, scratch = true
+		M.buf_id = vim.api.nvim_create_buf(false, true) -- Create a new scratch buffer with listed = false, scratch = true
 		vim.bo[M.buf_id].buftype = "nofile" -- Mark as non-file-backed (prevents writes)
 		vim.bo[M.buf_id].bufhidden = "wipe" -- When buffer is no longer used it gets fully deleted
 		vim.bo[M.buf_id].swapfile = false -- prevents swap files from being made for this buffer
