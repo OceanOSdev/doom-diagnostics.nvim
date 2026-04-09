@@ -13,12 +13,6 @@ M.current_image = nil
 ---@type table|nil The image.nvim engine
 local ImageEngine = nil
 
----Check if the image engine is initialized
----@return boolean
-function M.has_engine()
-	return ImageEngine ~= nil
-end
-
 ---Initialize the image engine
 ---@param engine table The image.nvim library
 function M.init_engine(engine)
