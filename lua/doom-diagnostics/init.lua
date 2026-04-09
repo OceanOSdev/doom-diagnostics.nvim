@@ -66,7 +66,7 @@ function M.render_doomguy()
 
 	local status_text = pain > 0 and " FIX ERRORS TO HEAL!" or " STATUS: HEALED"
 
-	local ok = pcall(ui.draw, pain, status_text, M.config.win_width)
+	local ok = pcall(ui.draw, pain, status_text)
 	if not ok then
 		ui.render_ascii_fallback(pain, status_text)
 	end

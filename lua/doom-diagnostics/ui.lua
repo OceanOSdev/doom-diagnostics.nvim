@@ -58,14 +58,12 @@ end
 ---Draw the Doomguy sprite based on pain level
 ---@param pain_level number The calculated total pain
 ---@param text string The text to show under the image
----@param win_width integer The width of the window
-function M.draw(pain_level, text, win_width)
+function M.draw(pain_level, text)
 	local level = math.min(math.floor(pain_level / 10), 3)
 	local path = config.sprites[level]
 
 	if ImageEngine and M.win_id and M.buf_id then
 		vim.api.nvim_win_set_config(M.win_id, {
-			width = win_width,
 			height = 4,
 			col = vim.o.columns - 32,
 			row = 1,
