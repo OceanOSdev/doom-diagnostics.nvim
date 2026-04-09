@@ -32,20 +32,22 @@ function M.ensure_window(win_width)
 		vim.bo[M.buf_id].filetype = "doomguy" -- for funzies, incase I want to add some coloring to doomguy text later
 	end
 
+	---@type vim.api.keyset.win_config
+	local opts = {
+		relative = "editor",
+		width = win_width,
+		height = 4,
+		row = 1,
+		col = vim.o.columns - (win_width + 2),
+		style = "minimal",
+		border = "rounded",
+		focusable = false,
+	}
 	-- Check if the window exists and is valid
 	if not M.win_id or not vim.api.nvim_win_is_valid(M.win_id) then
-		---@type vim.api.keyset.win_config
-		local opts = {
-			relative = "editor",
-			width = win_width,
-			height = 4,
-			row = 1,
-			col = vim.o.columns - (win_width + 2),
-			style = "minimal",
-			border = "rounded",
-			focusable = false,
-		}
 		M.win_id = vim.api.nvim_open_win(M.buf_id, false, opts) -- Open the window with the buffer
+	else
+		vim.api.nvim_win_set_config(M.win_id, opts)
 	end
 end
 
