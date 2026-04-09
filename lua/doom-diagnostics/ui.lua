@@ -58,7 +58,7 @@ function M.draw(pain_level, text)
 	local level = math.min(math.floor(pain_level / 10), 3)
 	local path = config.sprites[level]
 
-	if ImageEngine and M.win_id then
+	if ImageEngine and M.win_id and M.buf_id then
 		vim.api.nvim_win_set_config(M.win_id, {
 			width = 20,
 			height = 4,
