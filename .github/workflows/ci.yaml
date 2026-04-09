@@ -14,4 +14,8 @@ jobs:
           sudo apt-get install -y neovim
       - name: Load plugin
         run: |
-          nvim --headless +"set rtp+=." +"lua require('doom-diagnostics')" +qa
+          nvim --headless \
+            +"set rtp+=." \
+            +"lua require('doom-diagnostics').setup({ force_ascii = true })" \
+            +"lua vim.cmd('DoomToggle')" \
+            +qa
