@@ -137,6 +137,7 @@ If the HUD is visible but no sprite appears:
     force_ascii = true,
   },
 }
+```
 
 ---
 
