@@ -25,7 +25,8 @@ Originally started as a small one-off personal plugin, but I figured I'd clean i
 
 If `image.nvim` is not available, the plugin falls back to ASCII mode.
 
-> Note: `image.nvim` requires additional system dependencies such as ImageMagick.
+> [!NOTE]
+> `image.nvim` requires additional system dependencies such as ImageMagick.
 
 ---
 
