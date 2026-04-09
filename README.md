@@ -3,6 +3,8 @@
 [![CI](https://github.com/OceanOSdev/doom-diagnostics.nvim/actions/workflows/ci.yaml/badge.svg)](https://github.com/OceanOSdev/doom-diagnostics.nvim/actions/workflows/ci.yaml)
 [![Latest Release](https://img.shields.io/github/v/release/OceanOSdev/doom-diagnostics.nvim?sort=semver)](https://github.com/OceanOSdev/doom-diagnostics.nvim/releases/latest)
 
+![Code with errors](imgs/broken_code_example.png)
+
 Fix errors to heal Doomguy
 
 A Neovim plugin that displays a Doom-style HUD based on your diagnostics.
