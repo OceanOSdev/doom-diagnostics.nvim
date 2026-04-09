@@ -25,6 +25,8 @@ Originally started as a small one-off personal plugin, but I figured I'd clean i
 
 If `image.nvim` is not available, the plugin falls back to ASCII mode.
 
+> Note: `image.nvim` requires additional system dependencies such as ImageMagick.
+
 ---
 
 ## Installation (lazy.nvim)
@@ -115,6 +117,26 @@ Fewer errors -> Doomguy recovers
 * The HUD is hidden in special buffers (e.g. Telescope, file explorers)
 * The HUD currently only appears when an LSP client is attached
 * Position is fixed to the top-right corner (for now)
+
+---
+
+## Troubleshooting
+
+### Images are not rendering
+
+If the HUD is visible but no sprite appears:
+
+- Make sure `image.nvim` is installed and loaded
+- Ensure required system dependencies (e.g. ImageMagick) are installed
+- Try enabling ASCII mode to confirm the plugin is working:
+
+```lua
+{
+  "OceanOSdev/doom-diagnostics.nvim",
+  opts = {
+    force_ascii = true,
+  },
+}
 
 ---
 
