@@ -111,7 +111,8 @@ function M.create_autocmds()
 		end,
 	})
 
-	vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
+	--vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
+	vim.api.nvim_create_autocmd("BufLeave", {
 		group = group,
 		callback = function()
 			-- Clean slate before entering next buffer/window
