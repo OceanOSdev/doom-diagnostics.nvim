@@ -70,6 +70,13 @@ function M.draw(pain_level, text)
 			border = "rounded",
 		})
 
+		vim.api.nvim_buf_set_lines(M.buf_id, 0, -1, false, {
+			"",
+			"",
+			"",
+			text,
+		})
+
 		if M.current_image then
 			M.current_image:clear()
 		end
@@ -119,19 +126,6 @@ function M.hide()
 	if M.win_id and vim.api.nvim_win_is_valid(M.win_id) then
 		vim.api.nvim_win_close(M.win_id, true)
 		M.win_id = nil
-	end
-end
-
----Set the status text in the buffer
----@param text string The message to display
-function M.set_status(text)
-	if M.buf_id and vim.api.nvim_buf_is_valid(M.buf_id) then
-		vim.api.nvim_buf_set_lines(M.buf_id, 0, -1, false, {
-			"",
-			"",
-			"",
-			text,
-		})
 	end
 end
 
