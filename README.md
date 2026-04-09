@@ -105,6 +105,7 @@ The HUD updates automatically when:
 * an LSP client attaches
 
 More errors -> more pain
+
 Fewer errors -> Doomguy recovers
 
 ---
