@@ -63,15 +63,6 @@ function M.draw(pain_level, text)
 	local path = config.sprites[level]
 
 	if ImageEngine and M.win_id and M.buf_id then
-		vim.api.nvim_win_set_config(M.win_id, {
-			height = 4,
-			col = vim.o.columns - 32,
-			row = 1,
-			relative = "editor",
-			style = "minimal",
-			border = "rounded",
-		})
-
 		vim.api.nvim_buf_set_lines(M.buf_id, 0, -1, false, {
 			"",
 			"",
