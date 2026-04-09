@@ -52,7 +52,7 @@ If `image.nvim` is not available, the plugin falls back to ASCII mode.
 {
   "OceanOSdev/doom-diagnostics.nvim",
   dependencies = {
-    "3rd/image.nvim", opts = {},
+    { "3rd/image.nvim", opts = {} },  -- ensure image.nvim runs setup()
   },
   opts = {
     force_ascii = false,
