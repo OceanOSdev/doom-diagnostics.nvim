@@ -34,7 +34,7 @@ function M.ensure_window(win_width)
 		vim.bo[M.buf_id].buftype = "nofile" -- Mark as non-file-backed (prevents writes)
 		vim.bo[M.buf_id].bufhidden = "wipe" -- When buffer is no longer used it gets fully deleted
 		vim.bo[M.buf_id].swapfile = false -- prevents swap files from being made for this buffer
-		vim.bo[M.buf_id].modifiable = true -- prevents neovim from thinking this buffer is modifiable
+		vim.bo[M.buf_id].modifiable = true -- allows plugin to update buffer contents
 		vim.bo[M.buf_id].filetype = "doomguy" -- for funzies, incase I want to add some coloring to doomguy text later
 	end
 
