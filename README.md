@@ -2,7 +2,7 @@
 
 Fix errors to heal Doomguy
 
-A Neovim plugin that turns your diagnostics into Doomguy’s health.
+A Neovim plugin that displays a Doom-style HUD based on your diagnostics.
 
 Originally started as a small one-off personal plugin, but I figured I'd clean it up and throw it on Github.
 
