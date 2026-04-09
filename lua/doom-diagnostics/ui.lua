@@ -54,7 +54,8 @@ end
 
 ---Draw the Doomguy sprite based on pain level
 ---@param pain_level number The calculated total pain
-function M.draw(pain_level)
+---@param text string The text to show under the image
+function M.draw(pain_level, text)
 	local level = math.min(math.floor(pain_level / 10), 3)
 	local path = config.sprites[level]
 
@@ -86,20 +87,21 @@ function M.draw(pain_level)
 			M.current_image:render()
 		end
 	else
-		M.render_ascii_fallback(pain_level)
+		M.render_ascii_fallback(pain_level, text)
 	end
 end
 
 ---Display ASCII art when image rendering is unavailable
 ---@param pain_level number
-function M.render_ascii_fallback(pain_level)
-	local lines = { "  (^_^)  ", "  HEALTHY " }
+---@param status_text string
+function M.render_ascii_fallback(pain_level, status_text)
+	local lines = { "  (^_^)  ", "", status_text }
 	if pain_level > 50 then
-		lines = { "  (X_X)  ", "  CRITICAL " }
+		lines = { "  (X_X)  ", "", status_text }
 	elseif pain_level > 20 then
-		lines = { "  (x_x)  ", "  BLOODY " }
+		lines = { "  (x_x)  ", "", status_text }
 	elseif pain_level > 0 then
-		lines = { "  (o_o)  ", "  HURT " }
+		lines = { "  (o_o)  ", "", status_text }
 	end
 
 	if M.buf_id then

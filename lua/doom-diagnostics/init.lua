@@ -69,12 +69,12 @@ function M.render_doomguy()
 	ui.set_status(status_text)
 
 	if ui.has_engine() then
-		local ok = pcall(ui.draw, pain)
+		local ok = pcall(ui.draw, pain, status_text)
 		if not ok then
-			ui.render_ascii_fallback(pain)
+			ui.render_ascii_fallback(pain, status_text)
 		end
 	else
-		ui.render_ascii_fallback(pain)
+		ui.render_ascii_fallback(pain, status_text)
 	end
 end
 
