@@ -110,7 +110,7 @@ function M.render_ascii_fallback(pain_level, status_text)
 		lines = { "  (o_o)  ", "", status_text }
 	end
 
-	if M.buf_id then
+	if M.buf_id and vim.api.nvim_buf_is_valid(M.buf_id) then
 		vim.api.nvim_buf_set_lines(M.buf_id, 0, -1, false, lines)
 	end
 end
