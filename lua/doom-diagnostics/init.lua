@@ -97,7 +97,10 @@ end
 
 ---Setup autocmds for diagnostic updates and buffer switching
 function M.create_autocmds()
+	local group = vim.api.nvim_create_augroup("DoomDiagnostics", { clear = true })
+
 	vim.api.nvim_create_autocmd({ "VimEnter", "DiagnosticChanged", "BufEnter", "WinEnter", "LspAttach" }, {
+		group = group,
 		callback = function()
 			-- Wrap in schedule to avoid E565 (textlock)
 			vim.schedule(function()
@@ -109,6 +112,7 @@ function M.create_autocmds()
 	})
 
 	vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
+		group = group,
 		callback = function()
 			-- Clean slate before entering next buffer/window
 			ui.hide()
