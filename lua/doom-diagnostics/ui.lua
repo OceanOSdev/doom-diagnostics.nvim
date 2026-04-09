@@ -23,7 +23,6 @@ end
 ---@param engine table The image.nvim library
 function M.init_engine(engine)
 	ImageEngine = engine
-	pcall(ImageEngine.setup)
 end
 
 ---Ensure the buffer and floating window exist
