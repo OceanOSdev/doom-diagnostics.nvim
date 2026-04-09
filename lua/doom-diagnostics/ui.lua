@@ -31,7 +31,11 @@ function M.ensure_window(win_width)
 	-- Check if the buffer exists and is valid
 	if not M.buf_id or not vim.api.nvim_buf_is_valid(M.buf_id) then
 		M.buf_id = vim.api.nvim_create_buf(false, true) -- Creat a new scratch buffer with listed = false, scratch = true
-		vim.api.nvim_set_option_value("filetype", "doomguy", { buf = M.buf_id }) -- Set filetype for potential syntax highlighting later
+		vim.bo[M.buf_id].buftype = "nofile" -- Mark as non-file-backed (prevents writes)
+		vim.bo[M.buf_id].bufhidden = "wipe" -- When buffer is no longer used it gets fully deleted
+		vim.bo[M.buf_id].swapfile = false -- prevents swap files from being made for this buffer
+		vim.bo[M.buf_id].modifiable = true -- prevents neovim from thinking this buffer is modifiable
+		vim.bo[M.buf_id].filetype = "doomguy" -- for funzies, incase I want to add some coloring to doomguy text later
 	end
 
 	-- Check if the window exists and is valid
