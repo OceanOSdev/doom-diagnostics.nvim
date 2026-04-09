@@ -87,6 +87,8 @@ function M.draw(pain_level, text)
 
 		if M.current_image then
 			M.current_image:render()
+		else
+			M.render_ascii_fallback(pain_level, text)
 		end
 	else
 		M.render_ascii_fallback(pain_level, text)
